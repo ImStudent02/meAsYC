@@ -1,6 +1,8 @@
 # meAsYC - Advanced Portfolio Ecosystem
 
-A high-performance, dynamic portfolio built with Next.js, Framer Motion, and Tailwind CSS. Features immersive theme-driven animations ("Hell Fire" & "Celestial") and a built-in admin panel for content management.
+A dynamic portfolio built with Next.js, Framer Motion, and Tailwind CSS. Features immersive theme-driven animations ("Hell Fire" & "Celestial") and a built-in admin panel for content management.
+
+Demo link: https://yc-mu-three.vercel.app/
 
 ## 🚀 Features
 
