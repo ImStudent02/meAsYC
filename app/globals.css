@@ -1,0 +1,288 @@
+/* ============================================================
+   GLOBALS.CSS — Cinematic Portfolio Theme System
+   Three themes: Dark (default), Light Heaven, Hell Fire
+   ============================================================ */
+/* ---- Google Font: Outfit (modern, clean, cinematic) ---- */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+/* ============================================================
+   THEME VARIABLES — CSS Custom Properties
+   ============================================================ */
+
+/* --- DARK MODE (Default: Deep Space with neon glow) --- */
+:root,
+[data-theme="dark"] {
+  --bg-primary: #050510;
+  --bg-secondary: #0a0a1a;
+  --bg-card: rgba(15, 15, 35, 0.6);
+  --bg-glass: rgba(15, 15, 40, 0.4);
+  --border-glass: rgba(100, 120, 255, 0.15);
+  --text-primary: #f0f0ff;
+  --text-secondary: #8888aa;
+  --text-muted: #555577;
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --accent-glow: rgba(99, 102, 241, 0.4);
+  --accent-glow-strong: rgba(99, 102, 241, 0.6);
+  --gradient-hero: linear-gradient(135deg, #050510 0%, #0f0f2d 30%, #1a0a2e 60%, #050510 100%);
+  --gradient-accent: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa);
+  --gradient-card: linear-gradient(145deg, rgba(20, 20, 50, 0.8), rgba(10, 10, 30, 0.4));
+  --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.15);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --nav-bg: rgba(5, 5, 16, 0.8);
+  --particle-color: rgba(99, 102, 241, 0.3);
+}
+
+/* --- LIGHT HEAVEN MODE (Ethereal, angelic whites & golds) --- */
+[data-theme="light"] {
+  --bg-primary: #fdfbf7;
+  --bg-secondary: #f5f0e8;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --bg-glass: rgba(255, 255, 255, 0.5);
+  --border-glass: rgba(212, 175, 55, 0.2);
+  --text-primary: #1a1a2e;
+  --text-secondary: #555566;
+  --text-muted: #999999;
+  --accent-primary: #d4af37;
+  --accent-secondary: #b8860b;
+  --accent-glow: rgba(212, 175, 55, 0.3);
+  --accent-glow-strong: rgba(212, 175, 55, 0.5);
+  --gradient-hero: linear-gradient(135deg, #fdfbf7 0%, #fef9ef 30%, #fff8e7 60%, #fdfbf7 100%);
+  --gradient-accent: linear-gradient(135deg, #d4af37, #f0d060, #d4af37);
+  --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(253, 251, 247, 0.6));
+  --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.1);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --nav-bg: rgba(253, 251, 247, 0.85);
+  --particle-color: rgba(212, 175, 55, 0.2);
+}
+
+/* --- HELL FIRE MODE (Infernal reds, oranges, volcanic) --- */
+[data-theme="hell"] {
+  --bg-primary: #0d0000;
+  --bg-secondary: #1a0505;
+  --bg-card: rgba(30, 5, 5, 0.6);
+  --bg-glass: rgba(40, 5, 5, 0.4);
+  --border-glass: rgba(255, 60, 30, 0.2);
+  --text-primary: #fff0e0;
+  --text-secondary: #cc8866;
+  --text-muted: #884433;
+  --accent-primary: #ff4500;
+  --accent-secondary: #ff6a00;
+  --accent-glow: rgba(255, 69, 0, 0.4);
+  --accent-glow-strong: rgba(255, 69, 0, 0.6);
+  --gradient-hero: linear-gradient(135deg, #0d0000 0%, #1a0505 30%, #2d0a00 60%, #0d0000 100%);
+  --gradient-accent: linear-gradient(135deg, #ff4500, #ff6a00, #ff8c00);
+  --gradient-card: linear-gradient(145deg, rgba(40, 10, 5, 0.8), rgba(20, 5, 0, 0.4));
+  --shadow-glow: 0 0 30px rgba(255, 69, 0, 0.2);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --nav-bg: rgba(13, 0, 0, 0.85);
+  --particle-color: rgba(255, 69, 0, 0.3);
+}
+
+/* ============================================================
+   BASE STYLES & PREMIUM TYPOGRAPHY
+   ============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Space Grotesk", "Outfit", system-ui, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background 0.8s ease, color 0.8s ease;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Outfit", sans-serif;
+}
+
+/* ============================================================
+   UTILITY CLASSES - ULTRA PREMIUM
+   ============================================================ */
+
+/* Architectural Glass Card - Sharp, subtle, premium */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0px; /* Sharp corners for luxury/structural feel */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: var(--border-glass);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Glowing text accent */
+.text-glow {
+  text-shadow: 0 0 30px var(--accent-glow);
+}
+
+/* Elegant Gradient text */
+.gradient-text {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Accent button - Sharp & Minimalist */
+.btn-accent {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 16px 40px;
+  border-radius: 0px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-accent::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-accent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.btn-accent > * {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px var(--accent-glow);
+  color: white;
+}
+
+.btn-accent:hover::after {
+  opacity: 1;
+}
+
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px var(--accent-glow-strong);
+}
+
+/* Section container */
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 20px; /* Mobile padding */
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding: 120px 32px; /* Tablet/Desktop padding */
+  }
+}
+
+@media (min-width: 1920px) {
+  .section-container {
+    max-width: 1800px;
+    padding: 160px 48px; /* Ultra-wide padding */
+  }
+}
+
+/* ============================================================
+   ANIMATED BACKGROUND PARTICLES (CSS only)
+   ============================================================ */
+
+.hero-bg {
+  position: relative;
+  background: var(--gradient-hero);
+  overflow: hidden;
+}
+
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(2px 2px at 20% 30%, var(--particle-color), transparent),
+    radial-gradient(2px 2px at 40% 70%, var(--particle-color), transparent),
+    radial-gradient(1px 1px at 60% 20%, var(--particle-color), transparent),
+    radial-gradient(2px 2px at 80% 50%, var(--particle-color), transparent),
+    radial-gradient(1px 1px at 10% 80%, var(--particle-color), transparent),
+    radial-gradient(2px 2px at 70% 90%, var(--particle-color), transparent),
+    radial-gradient(1px 1px at 90% 10%, var(--particle-color), transparent),
+    radial-gradient(1px 1px at 50% 50%, var(--particle-color), transparent);
+  background-size: 200% 200%;
+  animation: particleFloat 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes particleFloat {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* ============================================================
+   SCROLLBAR STYLING
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+/* ============================================================
+   SELECTION COLOR
+   ============================================================ */
+
+::selection {
+  background: var(--accent-primary);
+  color: white;
+}
+
+/* ============================================================
+   RESPONSIVE HELPERS
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .section-container {
+    padding: 60px 16px;
+  }
+}
