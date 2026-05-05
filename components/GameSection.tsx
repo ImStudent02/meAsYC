@@ -43,20 +43,23 @@ export default function GameSection({ title, subtitle }: GameSectionProps) {
   const currentGame = GAMES.find((g) => g.id === activeGame);
 
   return (
-    <section id="games" className="relative" style={{ background: "var(--bg-secondary)" }}>
-      <div className="section-container" ref={ref}>
+    <section id="games" className="py-24 md:py-32 px-6 relative border-t overflow-hidden" style={{ background: "color-mix(in srgb, var(--theme-surface) 92%, transparent)", borderColor: "color-mix(in srgb, var(--theme-outline-variant) 20%, transparent)" }}>
+      {/* Background element */}
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1/3 h-full hidden lg:block" style={{ background: "color-mix(in srgb, var(--theme-surface-container-low) 50%, transparent)", borderRight: "1px solid color-mix(in srgb, var(--theme-outline-variant) 30%, transparent)" }}></div>
+
+      <div className="max-w-7xl mx-auto relative z-10" ref={ref}>
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Gamepad2 size={32} style={{ color: "var(--accent-primary)" }} />
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text">{title}</h2>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <Gamepad2 size={40} style={{ color: "var(--theme-primary)" }} />
+            <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight uppercase" style={{ color: "var(--theme-on-background)" }}>{title}</h2>
           </div>
-          <p className="text-lg" style={{ color: "var(--text-secondary)" }}>
+          <p className="text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto" style={{ color: "var(--theme-on-surface-variant)" }}>
             {subtitle}
           </p>
         </motion.div>
@@ -74,11 +77,11 @@ export default function GameSection({ title, subtitle }: GameSectionProps) {
                 <motion.button
                   key={game.id}
                   onClick={() => setActiveGame(game.id)}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all duration-300"
+                  className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider cursor-pointer transition-all duration-300"
                   style={{
-                    background: activeGame === game.id ? "var(--accent-glow)" : "var(--bg-glass)",
-                    color: activeGame === game.id ? "var(--accent-primary)" : "var(--text-secondary)",
-                    border: `1px solid ${activeGame === game.id ? "var(--accent-primary)" : "var(--border-glass)"}`,
+                    background: activeGame === game.id ? "color-mix(in srgb, var(--theme-primary) 10%, transparent)" : "transparent",
+                    color: activeGame === game.id ? "var(--theme-primary)" : "var(--theme-on-surface-variant)",
+                    border: `1px solid ${activeGame === game.id ? "var(--theme-primary)" : "var(--theme-outline-variant)"}`,
                   }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -91,22 +94,24 @@ export default function GameSection({ title, subtitle }: GameSectionProps) {
           )}
 
           {/* Active game container */}
-          <div className="glass-card p-8 flex flex-col items-center">
+          <div className="glass-card p-8 md:p-12 rounded-3xl flex flex-col items-center border" style={{ borderColor: "var(--theme-outline-variant)", background: "color-mix(in srgb, var(--theme-surface-container) 50%, transparent)" }}>
             {currentGame && (
               <>
                 <h3
-                  className="text-xl font-bold mb-2"
-                  style={{ color: "var(--text-primary)" }}
+                  className="text-2xl font-bold mb-3 uppercase tracking-wide"
+                  style={{ color: "var(--theme-on-surface)" }}
                 >
                   {currentGame.title}
                 </h3>
                 <p
-                  className="text-sm mb-6"
-                  style={{ color: "var(--text-muted)" }}
+                  className="text-base mb-8 font-light"
+                  style={{ color: "var(--theme-on-surface-variant)" }}
                 >
                   {currentGame.description}
                 </p>
-                {currentGame.component}
+                <div className="w-full">
+                  {currentGame.component}
+                </div>
               </>
             )}
           </div>

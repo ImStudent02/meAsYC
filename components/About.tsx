@@ -11,9 +11,13 @@ interface AboutProps {
   title: string;
   text: string;
   skills: string; // comma-separated skill list
+  card1Title: string;
+  card1Text: string;
+  card2Title: string;
+  card2Text: string;
 }
 
-export default function About({ title, text, skills }: AboutProps) {
+export default function About({ title, text, skills, card1Title, card1Text, card2Title, card2Text }: AboutProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -21,111 +25,110 @@ export default function About({ title, text, skills }: AboutProps) {
   const skillList = skills.split(",").map((s) => s.trim()).filter(Boolean);
 
   return (
-    <section id="about" className="relative" style={{ background: "var(--bg-secondary)" }}>
-      <div className="section-container" ref={ref}>
-        {/* Section header */}
+    <section id="about" className="py-24 md:py-32 px-6 relative border-t" style={{ background: "color-mix(in srgb, var(--theme-surface-container-lowest) 92%, transparent)", borderColor: "color-mix(in srgb, var(--theme-outline-variant) 20%, transparent)" }}>
+      {/* Background element */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-full hidden lg:block" style={{ background: "color-mix(in srgb, var(--theme-surface-container-low) 50%, transparent)", borderLeft: "1px solid color-mix(in srgb, var(--theme-outline-variant) 30%, transparent)" }}></div>
+
+      <div className="max-w-7xl mx-auto relative z-10" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-20 md:mb-32"
+          className="flex items-center gap-4 mb-16"
         >
-          <span
-            className="inline-block text-sm md:text-base font-semibold tracking-[0.3em] uppercase py-2 mb-6"
-            style={{ color: "var(--accent-primary)", borderBottom: "1px solid var(--accent-primary)" }}
-          >
-            01. Background
-          </span>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter" style={{ color: "var(--text-primary)" }}>
-            {title}
+          <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight uppercase" style={{ color: "var(--theme-on-background)" }}>
+            Evolution Core
           </h2>
+          <div className="h-[2px] flex-grow max-w-md" style={{ background: "linear-gradient(to right, var(--theme-primary), transparent)" }}></div>
         </motion.div>
 
-        {/* Content grid */}
-        <div className="grid md:grid-cols-[1.5fr_1fr] gap-16 lg:gap-32 items-start">
-          {/* Main text content */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(180px,auto)]">
+          {/* Bio Box */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="glass-card p-8 md:col-span-8 md:row-span-2 rounded-3xl group relative overflow-hidden"
           >
-            <div
-              className="text-xl md:text-3xl leading-relaxed font-light"
-              style={{ color: "var(--text-secondary)" }}
-            >
+            <div className="absolute top-0 right-0 w-32 h-32 blur-3xl opacity-20 group-hover:opacity-40 transition-opacity" style={{ background: "var(--theme-primary)" }}></div>
+            <h3 className="text-xl font-bold mb-4 uppercase tracking-wider" style={{ color: "var(--theme-primary)" }}>{title}</h3>
+            <div className="text-lg md:text-xl leading-relaxed font-light z-10 relative space-y-6" style={{ color: "var(--theme-on-surface-variant)" }}>
               {text.split('\n').map((paragraph, idx) => (
-                <p key={idx} className="mb-6">{paragraph}</p>
+                <p key={idx}>{paragraph}</p>
               ))}
-            </div>
-
-            {/* Premium minimal feature list */}
-            <div className="grid sm:grid-cols-2 gap-8 pt-12 border-t mt-12" style={{ borderColor: "var(--border-glass)" }}>
-              <div className="group cursor-pointer">
-                <div className="mb-4 text-[var(--accent-primary)] group-hover:scale-110 transition-transform origin-left">
-                  <MonitorSmartphone size={32} strokeWidth={1} />
-                </div>
-                <h3 className="text-xl font-bold mb-2 uppercase tracking-wide">Frontend Architecture</h3>
-                <p className="font-light text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                  Crafting buttery-smooth, interactive UI ecosystems.
-                </p>
-              </div>
-
-              <div className="group cursor-pointer">
-                <div className="mb-4 text-[var(--accent-primary)] group-hover:scale-110 transition-transform origin-left">
-                  <Database size={32} strokeWidth={1} />
-                </div>
-                <h3 className="text-xl font-bold mb-2 uppercase tracking-wide">Backend Systems</h3>
-                <p className="font-light text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-                  Designing robust, secure, and scalable architectures.
-                </p>
-              </div>
             </div>
           </motion.div>
 
-          {/* Tech Stack section - Premium vertical list */}
+          {/* Architecture Box */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="w-full relative"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="glass-card p-8 md:col-span-4 rounded-3xl flex flex-col justify-between group"
           >
-            <div className="sticky top-32">
-              <h3 className="text-sm font-bold uppercase tracking-[0.2em] mb-10 pb-4 border-b" style={{ color: "var(--text-primary)", borderColor: "var(--border-glass)" }}>
-                Core Technologies
-              </h3>
-              
-              <div className="flex flex-col gap-4">
-                {skills.split(",").map((skill, index) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                    className="flex items-center justify-between group cursor-pointer py-4 border-b transition-colors duration-300"
-                    style={{ borderColor: "var(--border-glass)" }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "var(--text-primary)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "var(--border-glass)";
-                    }}
-                  >
-                    <span
-                      className="text-lg md:text-xl font-medium tracking-wide uppercase group-hover:translate-x-4 transition-transform duration-500"
-                      style={{ color: "var(--text-primary)" }}
-                    >
-                      {skill.trim()}
-                    </span>
-                    <span 
-                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-sm font-bold tracking-widest"
-                      style={{ color: "var(--accent-primary)" }}
-                    >
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
+            <div className="mb-4 text-primary group-hover:scale-110 transition-transform origin-left" style={{ color: "var(--theme-primary)" }}>
+              <MonitorSmartphone size={32} strokeWidth={1} />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-2 uppercase tracking-wide" style={{ color: "var(--theme-on-surface)" }}>{card1Title}</h3>
+              <p className="font-light text-sm leading-relaxed" style={{ color: "var(--theme-on-surface-variant)" }}>
+                {card1Text}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Backend Box */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="glass-card p-8 md:col-span-4 rounded-3xl flex flex-col justify-between group"
+            style={{ background: "color-mix(in srgb, var(--theme-surface-variant) 30%, transparent)" }}
+          >
+            <div className="mb-4 text-primary group-hover:scale-110 transition-transform origin-left" style={{ color: "var(--theme-primary)" }}>
+              <Database size={32} strokeWidth={1} />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-2 uppercase tracking-wide" style={{ color: "var(--theme-on-surface)" }}>{card2Title}</h3>
+              <p className="font-light text-sm leading-relaxed" style={{ color: "var(--theme-on-surface-variant)" }}>
+                {card2Text}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Skills Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="md:col-span-12 mt-12"
+          >
+            <h3 className="font-display font-bold text-2xl mb-8 flex items-center gap-4" style={{ color: "var(--theme-on-background)" }}>
+              <span className="w-8 h-[2px]" style={{ background: "var(--theme-tertiary)" }}></span>
+              Tech Stack
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {skillList.map((skill, index) => (
+                <span
+                  key={index}
+                  className="px-6 py-3 rounded-full border text-sm font-medium tracking-wide transition-all hover:scale-105 cursor-default"
+                  style={{ 
+                    borderColor: "var(--theme-outline-variant)", 
+                    color: "var(--theme-on-surface)",
+                    background: "color-mix(in srgb, var(--theme-surface) 50%, transparent)"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "var(--theme-primary)";
+                    e.currentTarget.style.color = "var(--theme-primary)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "var(--theme-outline-variant)";
+                    e.currentTarget.style.color = "var(--theme-on-surface)";
+                  }}
+                >
+                  {skill}
+                </span>
+              ))}
             </div>
           </motion.div>
         </div>

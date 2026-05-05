@@ -5,7 +5,7 @@
 import { useEffect, useState, ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+
 import {
   LayoutDashboard,
   FileText,
@@ -28,79 +28,19 @@ const sidebarItems = [
 export default function AdminLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [authed, setAuthed] = useState(false);
-  const [checking, setChecking] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // Skip auth check for the login page
   const isLoginPage = pathname === "/admin/login";
 
-  useEffect(() => {
-    if (isLoginPage) {
-      setChecking(false);
-      setAuthed(true); // login page doesn't need auth
-      return;
-    }
-
-    // If Supabase isn't configured, allow access (dev mode)
-    if (!isSupabaseConfigured()) {
-      setAuthed(true);
-      setChecking(false);
-      return;
-    }
-
-    // Check auth session
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session) {
-        setAuthed(true);
-      } else {
-        router.push("/admin/login");
-      }
-      setChecking(false);
-    };
-
-    checkAuth();
-
-    // Listen for auth changes (login/logout)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session && !isLoginPage) {
-        router.push("/admin/login");
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, [router, isLoginPage]);
-
-  // Handle logout
+  // Handle logout (dummy for now)
   const handleLogout = async () => {
-    await supabase.auth.signOut();
-    router.push("/admin/login");
+    router.push("/");
   };
-
-  // Show loading while checking auth
-  if (checking) {
-    return (
-      <div
-        className="min-h-screen flex items-center justify-center"
-        style={{ background: "var(--bg-primary)" }}
-      >
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className="w-8 h-8 rounded-full border-2"
-          style={{ borderColor: "var(--border-glass)", borderTopColor: "var(--accent-primary)" }}
-        />
-      </div>
-    );
-  }
 
   // Login page gets no sidebar wrapper
   if (isLoginPage) {
     return <>{children}</>;
   }
-
-  if (!authed) return null;
 
   return (
     <div className="min-h-screen flex" style={{ background: "var(--bg-primary)" }}>

@@ -11,16 +11,16 @@ import { Moon, Sun, Flame, Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
+  { label: "Resume", href: "#resume" },
   { label: "Projects", href: "#projects" },
   { label: "Games", href: "#games" },
   { label: "Contact", href: "#contact" },
 ];
 
-// Theme options with icons and labels
 const themeOptions: { value: Theme; icon: React.ReactNode; label: string }[] = [
-  { value: "dark", icon: <Moon size={16} />, label: "Deep Dark" },
-  { value: "light", icon: <Sun size={16} />, label: "Light Heaven" },
-  { value: "hell", icon: <Flame size={16} />, label: "Hell Fire" },
+  { value: "dark", icon: <Moon size={16} />, label: "Celestial (Dark)" },
+  { value: "light", icon: <Sun size={16} />, label: "White Heaven (Light)" },
+  { value: "red", icon: <Flame size={16} />, label: "Hell Fire (Red)" },
 ];
 
 export default function Navbar() {
@@ -39,7 +39,7 @@ export default function Navbar() {
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      animate={{ y: 0, opacity: 0.9 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
@@ -54,7 +54,7 @@ export default function Navbar() {
           className="text-xl md:text-2xl font-black uppercase tracking-[0.2em] cursor-pointer"
           style={{ color: "var(--text-primary)" }}
         >
-          meAsYC
+          This is Yashkumar (YC) Mayani.
         </motion.a>
 
         {/* Desktop nav links */}
@@ -83,7 +83,7 @@ export default function Navbar() {
             >
               {theme === "dark" && <Moon size={16} />}
               {theme === "light" && <Sun size={16} />}
-              {theme === "hell" && <Flame size={16} />}
+              {theme === "red" && <Flame size={16} />}
             </button>
 
             {/* Theme dropdown */}
@@ -100,20 +100,26 @@ export default function Navbar() {
                     boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
                   }}
                 >
-                  {themeOptions.map((opt) => (
-                     <button
-                       key={opt.value}
-                       onClick={() => { setTheme(opt.value); setThemeMenuOpen(false); }}
-                       className="flex items-center gap-4 w-full px-6 py-4 text-xs font-bold uppercase tracking-widest transition-all duration-200 cursor-pointer hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)]"
-                       style={{
-                         color: theme === opt.value ? "var(--accent-primary)" : "var(--text-primary)",
-                         borderBottom: "1px solid var(--border-glass)"
-                       }}
-                     >
-                       {opt.icon}
-                       {opt.label}
-                     </button>
-                  ))}
+                  {themeOptions.map((opt) => {
+                    const isActive = theme === opt.value;
+                    return (
+                      <button
+                        key={opt.value}
+                        onClick={() => { setTheme(opt.value); setThemeMenuOpen(false); }}
+                        className={`flex items-center gap-4 w-full px-6 py-4 text-xs font-bold uppercase tracking-widest transition-all duration-200 cursor-pointer border-l-4 ${
+                          isActive 
+                            ? "border-[var(--accent-primary)] text-[var(--accent-primary)] hover:bg-[var(--accent-primary)] hover:text-[var(--bg-primary)]" 
+                            : "border-transparent text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)]"
+                        }`}
+                        style={{
+                          borderBottom: "1px solid var(--border-glass)"
+                        }}
+                      >
+                        {opt.icon}
+                        {opt.label}
+                      </button>
+                    );
+                  })}
                 </motion.div>
               )}
             </AnimatePresence>

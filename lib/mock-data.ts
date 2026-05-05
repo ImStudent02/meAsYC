@@ -19,6 +19,17 @@ export const mockContent: SiteContentMap = {
   projects_subtitle: "A curated selection of my finest work",
   games_title: "Game Corner",
   games_subtitle: "Take a break and play something fun",
+  social_github: "https://github.com",
+  social_twitter: "https://twitter.com",
+  social_linkedin: "https://linkedin.com",
+  about_card1_title: "Frontend Systems",
+  about_card1_text: "Crafting buttery-smooth, interactive UI ecosystems.",
+  about_card2_title: "Backend Architecture",
+  about_card2_text: "Designing robust, secure, and scalable databases.",
+  edu_title: "Education",
+  edu_text: "B.Tech in Computer Science\nUniversity of Tech | 2020 - 2024\nFocus on Software Engineering & AI",
+  exp_title: "Experience",
+  exp_text: "Senior Software Engineer\nTech Solutions Inc | 2024 - Present\nLeading frontend architecture and cloud infrastructure.\n\nSoftware Developer Intern\nInnovate Labs | 2023 - 2024\nDeveloped real-time collaboration features using WebSockets.",
 };
 
 export const mockProjects: Project[] = [

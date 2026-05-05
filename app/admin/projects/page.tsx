@@ -13,9 +13,8 @@ import {
   AlertCircle,
   RefreshCw,
 } from "lucide-react";
-import { getProjects, createProject, updateProject, deleteProject } from "@/lib/data";
+import { fetchProjects, createProject, updateProject, deleteProject } from "@/lib/api-client";
 import { Project } from "@/lib/types";
-import { isSupabaseConfigured } from "@/lib/supabase";
 
 // Empty project template for the create form
 const emptyProject: Omit<Project, "id" | "created_at"> = {
@@ -34,7 +33,6 @@ export default function ProjectsManager() {
   const [form, setForm] = useState(emptyProject);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const configured = isSupabaseConfigured();
 
   // Load projects
   useEffect(() => {
@@ -42,18 +40,17 @@ export default function ProjectsManager() {
   }, []);
 
   const loadProjects = async () => {
-    const data = await getProjects();
-    setProjects(data);
+    try {
+      const data = await fetchProjects();
+      setProjects(data);
+    } catch (error) {
+      console.error("Error loading projects:", error);
+    }
   };
 
   // Handle create
   const handleCreate = async () => {
     if (!form.title.trim()) return;
-    if (!configured) {
-      setError("Supabase not configured. Can't create projects in preview mode.");
-      setTimeout(() => setError(null), 3000);
-      return;
-    }
     setSaving(true);
     const success = await createProject(form);
     setSaving(false);
@@ -69,11 +66,6 @@ export default function ProjectsManager() {
 
   // Handle update
   const handleUpdate = async (id: string) => {
-    if (!configured) {
-      setError("Supabase not configured.");
-      setTimeout(() => setError(null), 3000);
-      return;
-    }
     setSaving(true);
     const success = await updateProject(id, form);
     setSaving(false);
@@ -90,11 +82,6 @@ export default function ProjectsManager() {
   // Handle delete
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this project?")) return;
-    if (!configured) {
-      setError("Supabase not configured.");
-      setTimeout(() => setError(null), 3000);
-      return;
-    }
     const success = await deleteProject(id);
     if (success) {
       loadProjects();
@@ -139,7 +126,7 @@ export default function ProjectsManager() {
   };
 
   // Project form (reused for create and edit)
-  const ProjectForm = ({ onSubmit, submitLabel }: { onSubmit: () => void; submitLabel: string }) => (
+  const renderProjectForm = (onSubmit: () => void, submitLabel: string) => (
     <motion.div
       initial={{ opacity: 0, height: 0 }}
       animate={{ opacity: 1, height: "auto" }}
@@ -251,7 +238,7 @@ export default function ProjectsManager() {
   );
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="w-full max-w-7xl mx-auto">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
@@ -285,21 +272,6 @@ export default function ProjectsManager() {
           </div>
         </div>
 
-        {/* Not configured warning */}
-        {!configured && (
-          <div
-            className="flex items-center gap-2 p-4 rounded-xl mb-6 text-sm"
-            style={{
-              background: "rgba(255, 165, 0, 0.1)",
-              border: "1px solid rgba(255, 165, 0, 0.3)",
-              color: "#ffaa00",
-            }}
-          >
-            <AlertCircle size={16} />
-            Supabase not configured. Showing mock data. CRUD is disabled.
-          </div>
-        )}
-
         {/* Error */}
         {error && (
           <motion.div
@@ -317,28 +289,23 @@ export default function ProjectsManager() {
           </motion.div>
         )}
 
-        {/* Create form */}
-        <AnimatePresence>
-          {creating && <ProjectForm onSubmit={handleCreate} submitLabel="Create Project" />}
-        </AnimatePresence>
-
-        {/* Projects list */}
-        <div className="space-y-4">
-          {projects.map((project, i) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-            >
-              {/* If editing this project, show form */}
-              {editing === project.id ? (
-                <ProjectForm
-                  onSubmit={() => handleUpdate(project.id)}
-                  submitLabel="Update Project"
-                />
-              ) : (
-                <div className="glass-card p-5 flex items-center gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          {/* Left Column: Projects list */}
+          <div className="lg:col-span-7 space-y-4 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 custom-scrollbar">
+            {projects.map((project, i) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+              >
+                <div 
+                  className="glass-card p-5 flex items-center gap-4 transition-all duration-300"
+                  style={{
+                    borderColor: editing === project.id ? "var(--accent-primary)" : "var(--border-glass)",
+                    boxShadow: editing === project.id ? "0 0 20px var(--accent-glow)" : "none"
+                  }}
+                >
                   {/* Sort order badge */}
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold shrink-0"
@@ -382,9 +349,9 @@ export default function ProjectsManager() {
                       onClick={() => startEdit(project)}
                       className="p-2 rounded-xl cursor-pointer"
                       style={{
-                        background: "var(--bg-glass)",
+                        background: editing === project.id ? "var(--accent-primary)" : "var(--bg-glass)",
                         border: "1px solid var(--border-glass)",
-                        color: "var(--accent-primary)",
+                        color: editing === project.id ? "white" : "var(--accent-primary)",
                       }}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
@@ -406,17 +373,44 @@ export default function ProjectsManager() {
                     </motion.button>
                   </div>
                 </div>
-              )}
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
 
-        {/* Empty state */}
-        {projects.length === 0 && (
-          <div className="glass-card p-12 text-center">
-            <p style={{ color: "var(--text-muted)" }}>No projects yet. Click &quot;Add Project&quot; to create one.</p>
+            {/* Empty state */}
+            {projects.length === 0 && (
+              <div className="glass-card p-12 text-center">
+                <p style={{ color: "var(--text-muted)" }}>No projects yet. Click &quot;Add Project&quot; to create one.</p>
+              </div>
+            )}
           </div>
-        )}
+
+          {/* Right Column: Form */}
+          <div className="lg:col-span-5 sticky top-6">
+            <AnimatePresence mode="wait">
+              {creating ? (
+                <div key="create-form">
+                  {renderProjectForm(handleCreate, "Create Project")}
+                </div>
+              ) : editing ? (
+                <div key="edit-form">
+                  {renderProjectForm(() => handleUpdate(editing), "Update Project")}
+                </div>
+              ) : (
+                <motion.div
+                  key="empty-state"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="glass-card p-12 text-center border border-dashed"
+                  style={{ borderColor: "var(--border-glass)" }}
+                >
+                  <Plus size={32} className="mx-auto mb-4 opacity-50" style={{ color: "var(--text-muted)" }} />
+                  <p style={{ color: "var(--text-muted)" }}>Select a project to edit or add a new one.</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
       </motion.div>
     </div>
   );

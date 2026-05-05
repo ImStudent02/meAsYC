@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IGNITING THE FUTURE OF ENTERTAINMENT | AI/ML Engineer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#ffb77d",
+                        "primary": "#ffb4a5",
+                        "primary-fixed": "#ffdad3",
+                        "secondary-fixed-dim": "#ffb2ba",
+                        "surface": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#2f1500",
+                        "on-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "background": "#131313",
+                        "primary-container": "#ff5637",
+                        "surface-tint": "#ffb4a5",
+                        "surface-bright": "#393939",
+                        "on-primary-fixed-variant": "#8e1300",
+                        "on-tertiary": "#4d2600",
+                        "tertiary-fixed": "#ffdcc3",
+                        "secondary-container": "#c20144",
+                        "on-secondary-fixed-variant": "#910031",
+                        "surface-container-highest": "#353534",
+                        "on-error": "#690005",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "on-tertiary-container": "#432100",
+                        "inverse-primary": "#ba1c00",
+                        "on-primary-container": "#590800",
+                        "primary-fixed-dim": "#ffb4a5",
+                        "on-secondary-fixed": "#400011",
+                        "on-primary-fixed": "#3e0400",
+                        "on-secondary": "#670020",
+                        "surface-container": "#201f1f",
+                        "on-background": "#e5e2e1",
+                        "outline-variant": "#5c403a",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#6e3900",
+                        "tertiary-container": "#da7700",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1c1b1b",
+                        "on-surface-variant": "#e5bdb6",
+                        "on-secondary-container": "#ffd1d5",
+                        "tertiary-fixed-dim": "#ffb77d",
+                        "outline": "#ac8881",
+                        "surface-dim": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-fixed": "#ffd9dc",
+                        "secondary": "#ffb2ba",
+                        "on-primary": "#650b00"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "margin": "40px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"],
+                        "headline-display": ["Space Grotesk"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { "lineHeight": "160%", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "110%", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "160%", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "120%", "fontWeight": "600" }],
+                        "label-caps": ["14px", { "lineHeight": "100%", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-display": ["84px", { "lineHeight": "90%", "letterSpacing": "-0.04em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glow-text {
+            text-shadow: 0 0 20px rgba(255, 86, 55, 0.6), 0 0 40px rgba(255, 86, 55, 0.4);
+        }
+        .glow-box {
+            box-shadow: 0 0 30px rgba(255, 86, 55, 0.15);
+        }
+        .hot-edge {
+            border: 1px solid rgba(255, 86, 55, 0.3);
+        }
+        .hot-edge:hover {
+            border-color: rgba(255, 86, 55, 0.8);
+            box-shadow: 0 0 20px rgba(255, 86, 55, 0.4);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #ff5637 0%, #c20144 100%);
+            box-shadow: 0 0 15px rgba(255, 86, 55, 0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(255, 86, 55, 0.8);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: rgba(255, 86, 55, 0.05);
+            border: 1px solid rgba(255, 86, 55, 0.5);
+            box-shadow: 0 0 10px rgba(255, 86, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 86, 55, 0.15);
+            box-shadow: 0 0 20px rgba(255, 86, 55, 0.5);
+        }
+        .terminal-block {
+            background: #0e0e0e;
+            border-radius: 0.25rem;
+            border-top: 2px solid #5c403a;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg antialiased selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<nav class="bg-background/60 backdrop-blur-md sticky top-0 w-full z-50 border-b border-outline-variant/20 shadow-[0_0_20px_rgba(255,86,55,0.1)]">
+<div class="flex justify-between items-center h-20 px-margin max-w-container-max mx-auto">
+<div class="font-headline-xl text-headline-md font-bold text-primary tracking-tighter glow-text">
+                VOID_ARCHITECT
+            </div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="font-headline-md text-headline-md tracking-widest text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 transition-transform" href="#nexus">Nexus</a>
+<a class="font-headline-md text-headline-md tracking-widest text-on-surface-variant font-medium hover:text-primary hover:drop-shadow-[0_0_8px_rgba(255,86,55,0.8)] transition-all duration-300 active:scale-95 transition-transform" href="#evolution">Evolution</a>
+<a class="font-headline-md text-headline-md tracking-widest text-on-surface-variant font-medium hover:text-primary hover:drop-shadow-[0_0_8px_rgba(255,86,55,0.8)] transition-all duration-300 active:scale-95 transition-transform" href="#artifacts">Artifacts</a>
+<a class="font-headline-md text-headline-md tracking-widest text-on-surface-variant font-medium hover:text-primary hover:drop-shadow-[0_0_8px_rgba(255,86,55,0.8)] transition-all duration-300 active:scale-95 transition-transform" href="#signal">Signal</a>
+</div>
+<div class="flex gap-4 items-center">
+<button class="text-primary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined">brightness_4</span>
+</button>
+<button class="text-primary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined">account_tree</span>
+</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center overflow-hidden px-margin" id="nexus">
+<!-- Background Glows -->
+<div class="absolute inset-0 z-0">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-container/20 rounded-full blur-[120px]"></div>
+<div class="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-secondary-container/20 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-tertiary-container/10 rounded-full blur-[100px]"></div>
+<!-- Abstract tech texture placeholder -->
+<div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&amp;w=2070')] bg-cover bg-center mix-blend-overlay" data-alt="A macro shot of a complex, glowing digital circuit board with deep black background and intense, radioactive red and orange energy conduits pulsing through the pathways. The aesthetic is cyber-brutalist, aggressive, and highly detailed, representing massive computational power and advanced AI processing in a dark, cinematic style."></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="col-span-1 lg:col-span-8 flex flex-col items-start gap-8">
+<div class="font-label-caps text-label-caps text-tertiary tracking-widest border border-outline-variant px-4 py-2 rounded-DEFAULT bg-surface-container/50 backdrop-blur-sm hot-edge">
+                        AI/ML ARCHITECT • NEURAL SYSTEMS
+                    </div>
+<h1 class="font-headline-display text-headline-display text-on-surface uppercase glow-text">
+                        Igniting the <br/>
+<span class="text-primary-container">Future of</span><br/>
+                        Entertainment
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl border-l-4 border-primary-container pl-6">
+                        Architecting hyper-scale machine learning models that synthesize reality and disrupt the visual effects pipeline. Processing petabytes of visual data to render the impossible.
+                    </p>
+<div class="flex flex-wrap gap-6 mt-4">
+<button class="btn-primary font-label-caps text-label-caps text-white px-8 py-4 rounded-DEFAULT uppercase tracking-widest flex items-center gap-2">
+                            Deploy Models
+                            <span class="material-symbols-outlined text-[20px]">rocket_launch</span>
+</button>
+<button class="btn-secondary font-label-caps text-label-caps text-primary px-8 py-4 rounded-DEFAULT uppercase tracking-widest flex items-center gap-2">
+                            Initialize Signal
+                            <span class="material-symbols-outlined text-[20px]">terminal</span>
+</button>
+</div>
+</div>
+<div class="col-span-1 lg:col-span-4 hidden lg:flex justify-end">
+<!-- Abstract Hero Visual -->
+<div class="relative w-full aspect-square terminal-block p-6 flex flex-col hot-edge glow-box">
+<div class="flex justify-between items-center border-b border-outline-variant pb-2 mb-4">
+<span class="font-label-caps text-label-caps text-primary">system_status.log</span>
+<span class="material-symbols-outlined text-tertiary text-[16px]">memory</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant font-mono space-y-2">
+<p><span class="text-tertiary">&gt;</span> Initialize Neural_Core v9.4</p>
+<p><span class="text-tertiary">&gt;</span> Loading datasets... <span class="text-primary">OK</span></p>
+<p><span class="text-tertiary">&gt;</span> Compiling shaders... <span class="text-primary">OK</span></p>
+<p><span class="text-tertiary">&gt;</span> WARNING: Thermal limits exceeded.</p>
+<p><span class="text-primary-container font-bold animate-pulse">&gt; IGNITION SEQUENCE START</span></p>
+<div class="mt-8 h-32 w-full flex items-end gap-1">
+<!-- Mock Graph -->
+<div class="w-1/6 bg-primary-container/20 h-[30%]"></div>
+<div class="w-1/6 bg-primary-container/40 h-[50%]"></div>
+<div class="w-1/6 bg-primary-container/60 h-[40%]"></div>
+<div class="w-1/6 bg-primary-container/80 h-[80%]"></div>
+<div class="w-1/6 bg-primary-container h-[100%] glow-box"></div>
+<div class="w-1/6 bg-tertiary h-[90%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Artifacts (Projects) Section -->
+<section class="py-24 px-margin bg-surface-container-lowest relative z-10" id="artifacts">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 border-b border-outline-variant/30 pb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase glow-text mb-2">Neural Artifacts</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Production-grade ML pipelines deployed in AAA environments.</p>
+</div>
+<button class="font-label-caps text-label-caps text-tertiary hover:text-primary transition-colors flex items-center gap-2">
+                        View Repository <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Project Card 1 -->
+<div class="bg-surface-container-low rounded-lg p-6 flex flex-col gap-6 hot-edge group cursor-pointer relative overflow-hidden">
+<!-- Hover Glow -->
+<div class="absolute -bottom-20 -right-20 w-40 h-40 bg-primary-container/30 blur-[50px] group-hover:bg-primary-container/60 transition-all duration-500"></div>
+<div class="flex justify-between items-start">
+<div class="bg-surface-container p-3 rounded-DEFAULT border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[32px]">movie_edit</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">v2.1.0</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 group-hover:text-primary transition-colors">Volumetric Synthesis Engine</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+                                Real-time neural radiance fields (NeRF) optimized for virtual production LED volumes. Reduces render latency by 40% while maintaining photorealism.
+                            </p>
+</div>
+<div class="mt-auto flex flex-wrap gap-2 pt-4 border-t border-outline-variant/30">
+<span class="text-xs font-mono px-2 py-1 bg-surface-bright text-tertiary rounded-sm">PyTorch</span>
+<span class="text-xs font-mono px-2 py-1 bg-surface-bright text-tertiary rounded-sm">CUDA</span>
+<span class="text-xs font-mono px-2 py-1 bg-surface-bright text-tertiary rounded-sm">Unreal Engine</span>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="bg-surface-container-low rounded-lg p-6 flex flex-col gap-6 hot-edge group cursor-pointer relative overflow-hidden">
+<div class="absolute -bottom-20 -right-20 w-40 h-40 bg-primary-container/30 blur-[50px] group-hover:bg-primary-container/60 transition-all duration-500"></div>
+<div class="flex justify-between items-start">
+<div class="bg-surface-container p-3 rounded-DEFAULT border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[32px]">animation</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">v1.4.2</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 group-hover:text-primary transition-colors">Kinematic Predictor</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+                                Deep learning model for generative character animation interpolation. Trained on massive mocap datasets to smooth complex mechanical interactions.
+                            </p>
+</div>
+<div class="mt-auto flex flex-wrap gap-2 pt-4 border-t border-outline-variant/30">
+<span class="text-xs font-mono px-2 py-1 bg-surface-bright text-tertiary rounded-sm">TensorFlow</span>
+<span class="text-xs font-mono px-2 py-1 bg-surface-bright text-tertiary rounded-sm">Maya API</span>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="bg-surface-container-low rounded-lg p-6 flex flex-col gap-6 hot-edge group cursor-pointer relative overflow-hidden">
+<div class="absolute -bottom-20 -right-20 w-40 h-40 bg-primary-container/30 blur-[50px] group-hover:bg-primary-container/60 transition-all duration-500"></div>
+<div class="flex justify-between items-start">
+<div class="bg-surface-container p-3 rounded-DEFAULT border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[32px]">graphic_eq</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">v3.0.0</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 group-hover:text-primary transition-colors">Acoustic Space Mapper</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+                                ML-driven audio spatialization tool that analyzes scene geometry to auto-generate realistic reverb and occlusion metadata for post-production.
+                            </p>
+</div>
+<div class="mt-auto flex flex-wrap gap-2 pt-4 border-t border-outline-variant/30">
+<span class="text-xs font-mono px-2 py-1 bg-surface-bright text-tertiary rounded-sm">JAX</span>
+<span class="text-xs font-mono px-2 py-1 bg-surface-bright text-tertiary rounded-sm">Wwise</span>
+<span class="text-xs font-mono px-2 py-1 bg-surface-bright text-tertiary rounded-sm">C++</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-[64px] border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-center gap-gutter px-margin max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-on-surface font-bold glow-text">
+                VOID_ARCHITECT
+            </div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary hover:tracking-widest transition-all duration-500 opacity-80 hover:opacity-100" href="#">Terminal</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary hover:tracking-widest transition-all duration-500 opacity-80 hover:opacity-100" href="#">Repository</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary hover:tracking-widest transition-all duration-500 opacity-80 hover:opacity-100" href="#">Neural Link</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary hover:tracking-widest transition-all duration-500 opacity-80 hover:opacity-100" href="#">Protocol</a>
+</div>
+<div class="font-label-caps text-label-caps text-outline-variant text-center md:text-right">
+                © 2024 ARCHITECT OF THE VOID. ALL DATA ENCRYPTED.
+            </div>
+</div>
+</footer>
+</body></html>

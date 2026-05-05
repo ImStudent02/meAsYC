@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
+import { AnimatedBackground } from "@/components/AnimatedBackground";
+
 export const metadata: Metadata = {
   title: "meAsYC | Cinematic Portfolio",
   description:
@@ -20,7 +22,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         {/* ThemeProvider enables dark/light/hell theme switching */}
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <AnimatedBackground />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

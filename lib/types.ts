@@ -34,6 +34,17 @@ export interface SiteContentMap {
   projects_subtitle: string;
   games_title: string;
   games_subtitle: string;
+  social_github: string;
+  social_twitter: string;
+  social_linkedin: string;
+  about_card1_title: string;
+  about_card1_text: string;
+  about_card2_title: string;
+  about_card2_text: string;
+  edu_title: string;
+  edu_text: string; // Will store education list as string/markdown
+  exp_title: string;
+  exp_text: string; // Will store experience list as string/markdown
   [key: string]: string;   // allow extra keys
 }
 

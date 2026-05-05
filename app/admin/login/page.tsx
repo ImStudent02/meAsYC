@@ -4,13 +4,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { supabase, isSupabaseConfigured } from "@/lib/supabase";
-import { Lock, Mail, AlertCircle } from "lucide-react";
+import { Lock, AlertCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { login } from "@/lib/auth";
 
 export default function AdminLogin() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -20,21 +19,11 @@ export default function AdminLogin() {
     setError("");
     setLoading(true);
 
-    // Check if Supabase is configured
-    if (!isSupabaseConfigured()) {
-      setError("Supabase is not configured. Add your keys to .env.local");
-      setLoading(false);
-      return;
-    }
-
     try {
-      const { error: authError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+      const success = await login(password);
 
-      if (authError) {
-        setError(authError.message);
+      if (!success) {
+        setError("Invalid password. Check your .env setup or try again.");
       } else {
         // Successful login - redirect to dashboard
         router.push("/admin");
@@ -106,24 +95,7 @@ export default function AdminLogin() {
             </motion.div>
           )}
 
-          {/* Email */}
-          <div className="relative">
-            <Mail
-              size={18}
-              className="absolute left-4 top-1/2 -translate-y-1/2"
-              style={{ color: "var(--text-muted)" }}
-            />
-            <input
-              type="email"
-              placeholder="admin@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              style={inputStyle}
-              onFocus={(e) => (e.target.style.borderColor = "var(--accent-primary)")}
-              onBlur={(e) => (e.target.style.borderColor = "var(--border-glass)")}
-            />
-          </div>
+
 
           {/* Password */}
           <div className="relative">

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI/ML Engineer Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#1a1a2b",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed-dim": "#c6c4db",
+                        "surface-container": "#201f1f",
+                        "primary-fixed": "#b4ebff",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "outline": "#859398",
+                        "secondary-fixed-dim": "#edb1ff",
+                        "on-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "on-surface-variant": "#bbc9cf",
+                        "surface-variant": "#353534",
+                        "surface-bright": "#3a3939",
+                        "primary": "#a8e8ff",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#f9d8ff",
+                        "surface-tint": "#3cd7ff",
+                        "primary-fixed-dim": "#3cd7ff",
+                        "primary-container": "#00d4ff",
+                        "on-tertiary-container": "#4f4e61",
+                        "inverse-primary": "#00677e",
+                        "secondary-container": "#6e208c",
+                        "tertiary": "#dfdcf3",
+                        "on-secondary-fixed": "#320046",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#004e5f",
+                        "on-error": "#690005",
+                        "surface": "#131313",
+                        "on-tertiary-fixed-variant": "#464558",
+                        "on-primary-container": "#00586b",
+                        "on-secondary": "#520070",
+                        "on-secondary-fixed-variant": "#6e208c",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#e3e0f8",
+                        "on-primary": "#003642",
+                        "on-background": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed": "#001f27",
+                        "outline-variant": "#3c494e",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary": "#edb1ff",
+                        "on-tertiary": "#2f2f40",
+                        "on-secondary-container": "#e498ff",
+                        "tertiary-container": "#c2c0d7",
+                        "surface-container-highest": "#353534"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "section-gap": "160px",
+                        "margin-page": "64px",
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "section-padding": "120px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Space Grotesk"],
+                        "headline-xl": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(32, 31, 31, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(168, 232, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(90deg, #a8e8ff, #edb1ff);
+        }
+        .star-field {
+            background-image: radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                              radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                              radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+                              radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+                              radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+                              radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed relative">
+<div class="fixed inset-0 z-[-1] star-field pointer-events-none"></div>
+<div class="fixed inset-0 z-[-1] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-background to-background pointer-events-none"></div>
+<!-- Navigation -->
+<nav class="sticky top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/20 shadow-[0_0_20px_rgba(168,232,255,0.05)]">
+<div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+<div class="font-headline-xl text-[24px] font-bold text-primary tracking-tighter">
+                VOID_ARCHITECT
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#nexus">Nexus</a>
+<a class="text-on-surface-variant font-medium hover:text-primary hover:drop-shadow-[0_0_8px_rgba(168,232,255,0.8)] transition-all duration-300 font-body-md text-body-md" href="#evolution">Evolution</a>
+<a class="text-on-surface-variant font-medium hover:text-primary hover:drop-shadow-[0_0_8px_rgba(168,232,255,0.8)] transition-all duration-300 font-body-md text-body-md" href="#artifacts">Artifacts</a>
+<a class="text-on-surface-variant font-medium hover:text-primary hover:drop-shadow-[0_0_8px_rgba(168,232,255,0.8)] transition-all duration-300 font-body-md text-body-md" href="#signal">Signal</a>
+</div>
+<div class="flex gap-4">
+<button class="active:scale-95 transition-transform text-primary hover:drop-shadow-[0_0_8px_rgba(168,232,255,0.8)]">
+<span class="material-symbols-outlined">brightness_4</span>
+</button>
+<button class="active:scale-95 transition-transform text-primary hover:drop-shadow-[0_0_8px_rgba(168,232,255,0.8)]">
+<span class="material-symbols-outlined">account_tree</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" id="nexus">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-background z-10"></div>
+<img alt="Abstract background" class="w-full h-full object-cover opacity-20 mix-blend-screen" data-alt="A serene, ethereal abstract digital landscape composed of soft, undulating white and silver waves. The lighting is high-key and diffused, creating a pristine, heaven-like light-mode atmosphere. Subtle translucent glass-like layers intersect, reflecting minimalist technical elegance and clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrPAXqg5WAEjZyfnY9fB2IyWHeaxNJpNWpsK4t3P1LeS3xR3pOXQ6gH_vLxkC9l2-Z3whcUNOrKpRidIjMcAl0MJj6RTyJ1C1IqB3Xjpzg8lB3aO6K2KjSu_Ub3Ab7gaR84X_AYRySUN2Xd_U6cJHtdfbKvMUQnQ4tdeLlVRL8eujocHbbT-wOtePUN4xjZlj3wX8wGIo_lWFcts5wfIl8NTM4lLZ8Kbd1tufycpnAqDLQ0kWJerJLy25vdEQGqLN0MJbg5lN-rxI"/>
+</div>
+<div class="relative z-10 text-center max-w-4xl px-gutter">
+<h1 class="font-display-lg text-display-lg text-on-background mb-6">
+                ELEVATING MEDIA<br/>
+<span class="text-gradient">THROUGH AI</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                Bridging the gap between complex machine learning architectures and cinematic storytelling. Architecting intelligent systems that feel like magic.
+            </p>
+<div class="flex gap-4 justify-center">
+<a class="glass-panel px-8 py-3 rounded-full font-body-md text-body-md text-on-background hover:bg-surface-container-high hover:text-primary hover:border-primary/50 transition-colors flex items-center gap-2" href="#artifacts">
+                    Explore Artifacts <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- About & Skills Bento Grid -->
+<section class="py-section-padding px-gutter max-w-container-max mx-auto" id="evolution">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- About Card -->
+<div class="md:col-span-8 glass-panel rounded-xl p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -left-20 -bottom-20 w-60 h-60 bg-primary/10 rounded-full blur-[80px] group-hover:bg-primary/20 transition-colors duration-700"></div>
+<div class="relative z-10">
+<h2 class="font-headline-md text-headline-md text-on-background mb-4">The Convergence of Art &amp; Logic</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        My work exists at the intersection of high technology and human creativity. By developing advanced neural networks and generative models, I empower creators in the entertainment industry to push the boundaries of visual and narrative expression. The goal is always invisible complexity—technology so refined it simply feels like an extension of the artist's intent.
+                    </p>
+</div>
+<div class="flex flex-wrap gap-2 relative z-10">
+<span class="px-4 py-1.5 rounded-full bg-surface-container-high text-primary font-label-caps text-label-caps border border-primary/20 shadow-[0_0_10px_rgba(168,232,255,0.1)]">Computer Vision</span>
+<span class="px-4 py-1.5 rounded-full bg-surface-container-high text-primary font-label-caps text-label-caps border border-primary/20 shadow-[0_0_10px_rgba(168,232,255,0.1)]">Generative AI</span>
+<span class="px-4 py-1.5 rounded-full bg-surface-container-high text-primary font-label-caps text-label-caps border border-primary/20 shadow-[0_0_10px_rgba(168,232,255,0.1)]">Neural Rendering</span>
+</div>
+</div>
+<!-- Focus Area Card -->
+<div class="md:col-span-4 glass-panel rounded-xl p-8 relative overflow-hidden group">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-secondary/10 rounded-full blur-[60px] group-hover:bg-secondary/20 transition-colors duration-700"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl text-secondary mb-4 block drop-shadow-[0_0_10px_rgba(237,177,255,0.5)]">model_training</span>
+<h3 class="font-headline-md text-[24px] text-on-background mb-2">Model Architecture</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Designing bespoke, efficient neural pathways optimized for real-time media processing and high-fidelity output.</p>
+</div>
+</div>
+<!-- Tech Stack Card -->
+<div class="md:col-span-12 glass-panel rounded-xl p-8 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50 pointer-events-none"></div>
+<h3 class="font-headline-md text-[24px] text-on-background mb-6 relative z-10">Technological Arsenal</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
+<div>
+<div class="text-primary font-label-caps text-label-caps mb-3 opacity-80">Frameworks</div>
+<ul class="space-y-2 font-body-md text-body-md text-on-surface-variant">
+<li class="hover:text-primary transition-colors cursor-default">PyTorch</li>
+<li class="hover:text-primary transition-colors cursor-default">TensorFlow</li>
+<li class="hover:text-primary transition-colors cursor-default">JAX</li>
+<li class="hover:text-primary transition-colors cursor-default">ONNX</li>
+</ul>
+</div>
+<div>
+<div class="text-primary font-label-caps text-label-caps mb-3 opacity-80">Languages</div>
+<ul class="space-y-2 font-body-md text-body-md text-on-surface-variant">
+<li class="hover:text-primary transition-colors cursor-default">Python</li>
+<li class="hover:text-primary transition-colors cursor-default">C++ / CUDA</li>
+<li class="hover:text-primary transition-colors cursor-default">Rust</li>
+<li class="hover:text-primary transition-colors cursor-default">Julia</li>
+</ul>
+</div>
+<div>
+<div class="text-primary font-label-caps text-label-caps mb-3 opacity-80">Media Tools</div>
+<ul class="space-y-2 font-body-md text-body-md text-on-surface-variant">
+<li class="hover:text-primary transition-colors cursor-default">Unreal Engine</li>
+<li class="hover:text-primary transition-colors cursor-default">Houdini</li>
+<li class="hover:text-primary transition-colors cursor-default">Nuke</li>
+<li class="hover:text-primary transition-colors cursor-default">TouchDesigner</li>
+</ul>
+</div>
+<div>
+<div class="text-primary font-label-caps text-label-caps mb-3 opacity-80">Cloud / Ops</div>
+<ul class="space-y-2 font-body-md text-body-md text-on-surface-variant">
+<li class="hover:text-primary transition-colors cursor-default">AWS / GCP</li>
+<li class="hover:text-primary transition-colors cursor-default">Kubernetes</li>
+<li class="hover:text-primary transition-colors cursor-default">Docker</li>
+<li class="hover:text-primary transition-colors cursor-default">MLflow</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-section-padding px-gutter max-w-container-max mx-auto relative" id="artifacts">
+<div class="mb-16">
+<h2 class="font-headline-xl text-headline-xl text-on-background mb-4">Selected Artifacts</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Applied intelligence in media production.</p>
+</div>
+<div class="space-y-8">
+<!-- Project 1 -->
+<div class="glass-panel rounded-xl overflow-hidden group">
+<div class="flex flex-col md:flex-row h-full">
+<div class="md:w-1/2 p-10 flex flex-col justify-center border-b md:border-b-0 md:border-r border-outline-variant/20 relative">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="relative z-10">
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-primary border border-primary/20 font-label-caps text-label-caps shadow-[0_0_10px_rgba(168,232,255,0.05)]">VFX Integration</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-4">Neural Roto Assistant</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                                A bespoke semantic segmentation model designed to automate complex rotoscoping tasks for feature films. Reduced manual masking time by 74% while maintaining sub-pixel edge accuracy.
+                            </p>
+<a class="inline-flex items-center gap-2 font-body-md text-body-md text-primary hover:text-secondary transition-colors w-fit pb-1 border-b border-primary/30 hover:border-secondary group/link" href="#">
+                                View Case Study <span class="material-symbols-outlined text-[16px] group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform">arrow_outward</span>
+</a>
+</div>
+</div>
+<div class="md:w-1/2 relative min-h-[300px] bg-surface-container overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&amp;w=2670&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-60 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" data-alt="A highly technical visualization showing a wireframe mesh overlaying a cinematic human face. The aesthetic is clean and minimal, using thin silver lines and subtle blue nodes against a pristine white background. The image evokes a sense of high-end, precise machine learning applied to visual effects.">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="glass-panel rounded-xl overflow-hidden group">
+<div class="flex flex-col md:flex-row-reverse h-full">
+<div class="md:w-1/2 p-10 flex flex-col justify-center border-b md:border-b-0 md:border-l border-outline-variant/20 relative">
+<div class="absolute inset-0 bg-gradient-to-l from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="relative z-10">
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-secondary border border-secondary/20 font-label-caps text-label-caps shadow-[0_0_10px_rgba(237,177,255,0.05)]">Generative Audio</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-4">Sonic Landscape Synthesis</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                                An end-to-end diffusion model capable of generating dynamic, multi-stem ambient soundscapes synchronized to visual sentiment analysis in real-time.
+                            </p>
+<a class="inline-flex items-center gap-2 font-body-md text-body-md text-secondary hover:text-primary transition-colors w-fit pb-1 border-b border-secondary/30 hover:border-primary group/link" href="#">
+                                View Case Study <span class="material-symbols-outlined text-[16px] group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform">arrow_outward</span>
+</a>
+</div>
+</div>
+<div class="md:w-1/2 relative min-h-[300px] bg-surface-container overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&amp;w=2670&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-60 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" data-alt="An ethereal rendering of sound waves represented as smooth, flowing glass-like ribbons suspended in a bright, white void. The visualization uses soft gradients of silver and minimal translucent layering. It conveys the concept of clean, algorithmically generated audio in a high-end studio setting.">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience & Contact -->
+<section class="py-section-padding px-gutter max-w-container-max mx-auto" id="signal">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<!-- Experience -->
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-8">Trajectory</h3>
+<div class="space-y-8 relative before:absolute before:inset-0 before:ml-2 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary/50 before:via-secondary/30 before:to-transparent">
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+<div class="flex items-center justify-center w-5 h-5 rounded-full border-2 border-primary bg-background shadow-[0_0_15px_rgba(168,232,255,0.6)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"></div>
+<div class="w-[calc(100%-2rem)] md:w-[calc(50%-1.5rem)] glass-panel p-6 rounded-xl relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<div class="flex items-center justify-between mb-2 relative z-10">
+<span class="font-label-caps text-label-caps text-primary drop-shadow-[0_0_5px_rgba(168,232,255,0.4)]">2022 - Present</span>
+</div>
+<h4 class="font-headline-md text-[24px] text-on-background relative z-10">Lead ML Engineer</h4>
+<p class="font-body-md text-body-md text-on-surface-variant relative z-10">Lumina Visual Effects</p>
+</div>
+</div>
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-5 h-5 rounded-full border-2 border-outline-variant bg-background shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"></div>
+<div class="w-[calc(100%-2rem)] md:w-[calc(50%-1.5rem)] glass-panel p-6 rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">2019 - 2022</span>
+</div>
+<h4 class="font-headline-md text-[24px] text-on-background">AI Researcher</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">SynthMedia Labs</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Contact -->
+<div class="glass-panel p-10 rounded-xl h-fit relative overflow-hidden">
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block drop-shadow-[0_0_10px_rgba(168,232,255,0.5)]">cell_tower</span>
+<h3 class="font-headline-md text-headline-md text-on-background mb-4">Establish Connection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                        Open for collaboration on technically demanding media projects or architectural consulting for AI integration.
+                    </p>
+<form class="space-y-6">
+<div>
+<input class="w-full bg-transparent border-b border-outline-variant/30 px-0 py-3 focus:ring-0 focus:border-primary font-body-md text-body-md text-on-background placeholder-on-surface-variant/50 transition-colors border-t-0 border-l-0 border-r-0 focus:shadow-[0_2px_10px_-3px_rgba(168,232,255,0.3)]" placeholder="Email Frequency" type="email"/>
+</div>
+<div>
+<textarea class="w-full bg-transparent border-b border-outline-variant/30 px-0 py-3 focus:ring-0 focus:border-primary font-body-md text-body-md text-on-background placeholder-on-surface-variant/50 transition-colors border-t-0 border-l-0 border-r-0 resize-none focus:shadow-[0_2px_10px_-3px_rgba(168,232,255,0.3)]" placeholder="Transmission Data" rows="3"></textarea>
+</div>
+<button class="mt-8 px-8 py-3 rounded-full border border-primary/50 text-primary font-label-caps text-label-caps hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(168,232,255,0.2)] transition-all duration-300 w-full md:w-auto" type="button">
+                            Transmit
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-10 bg-surface-container-lowest border-t border-outline-variant/10 relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-center gap-gutter px-gutter max-w-container-max mx-auto">
+<div class="font-headline-xl text-[24px] text-on-surface font-bold opacity-80 hover:opacity-100 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(168,232,255,0.5)] transition-all">
+                VOID_ARCHITECT
+            </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:tracking-widest hover:drop-shadow-[0_0_5px_rgba(168,232,255,0.5)] transition-all duration-500" href="#">Terminal</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:tracking-widest hover:drop-shadow-[0_0_5px_rgba(168,232,255,0.5)] transition-all duration-500" href="#">Repository</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:tracking-widest hover:drop-shadow-[0_0_5px_rgba(168,232,255,0.5)] transition-all duration-500" href="#">Neural Link</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary hover:tracking-widest hover:drop-shadow-[0_0_5px_rgba(168,232,255,0.5)] transition-all duration-500" href="#">Protocol</a>
+</div>
+<div class="font-label-caps text-label-caps text-secondary text-center md:text-right opacity-70">
+                © 2024 ARCHITECT OF THE VOID. ALL DATA ENCRYPTED.
+            </div>
+</div>
+</footer>
+</body></html>

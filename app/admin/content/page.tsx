@@ -5,9 +5,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Save, Check, AlertCircle, RefreshCw } from "lucide-react";
-import { getSiteContent, updateSiteContent } from "@/lib/data";
+import { fetchSiteContent, updateSiteContent } from "@/lib/api-client";
 import { SiteContentMap } from "@/lib/types";
-import { isSupabaseConfigured } from "@/lib/supabase";
 import { mockContent } from "@/lib/mock-data";
 
 // Define editable fields with labels and field types
@@ -25,6 +24,17 @@ const FIELDS: { key: string; label: string; type: "text" | "textarea" }[] = [
   { key: "contact_title", label: "Contact Title", type: "text" },
   { key: "contact_subtitle", label: "Contact Subtitle", type: "text" },
   { key: "contact_email", label: "Contact Email", type: "text" },
+  { key: "social_github", label: "GitHub URL", type: "text" },
+  { key: "social_twitter", label: "Twitter URL", type: "text" },
+  { key: "social_linkedin", label: "LinkedIn URL", type: "text" },
+  { key: "about_card1_title", label: "About Card 1 Title", type: "text" },
+  { key: "about_card1_text", label: "About Card 1 Text", type: "textarea" },
+  { key: "about_card2_title", label: "About Card 2 Title", type: "text" },
+  { key: "about_card2_text", label: "About Card 2 Text", type: "textarea" },
+  { key: "edu_title", label: "Education Title", type: "text" },
+  { key: "edu_text", label: "Education Details", type: "textarea" },
+  { key: "exp_title", label: "Experience Title", type: "text" },
+  { key: "exp_text", label: "Experience Details", type: "textarea" },
 ];
 
 export default function ContentEditor() {
@@ -32,7 +42,6 @@ export default function ContentEditor() {
   const [saving, setSaving] = useState<string | null>(null);
   const [saved, setSaved] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const configured = isSupabaseConfigured();
 
   // Load current content from DB
   useEffect(() => {
@@ -40,18 +49,12 @@ export default function ContentEditor() {
   }, []);
 
   const loadContent = async () => {
-    const data = await getSiteContent();
+    const data = await fetchSiteContent();
     setContent(data);
   };
 
   // Save a single field
   const saveField = async (key: string) => {
-    if (!configured) {
-      setError("Supabase not configured. Changes are preview-only.");
-      setTimeout(() => setError(null), 3000);
-      return;
-    }
-
     setSaving(key);
     const success = await updateSiteContent(key, content[key]);
     setSaving(null);
@@ -99,21 +102,6 @@ export default function ContentEditor() {
             <RefreshCw size={18} />
           </motion.button>
         </div>
-
-        {/* Not configured warning */}
-        {!configured && (
-          <div
-            className="flex items-center gap-2 p-4 rounded-xl mb-6 text-sm"
-            style={{
-              background: "rgba(255, 165, 0, 0.1)",
-              border: "1px solid rgba(255, 165, 0, 0.3)",
-              color: "#ffaa00",
-            }}
-          >
-            <AlertCircle size={16} />
-            Supabase not configured. Showing mock data. Edits are preview-only.
-          </div>
-        )}
 
         {/* Error message */}
         {error && (

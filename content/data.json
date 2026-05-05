@@ -1,0 +1,52 @@
+{
+  "content": {
+    "hero_title": "Welcome to one of the M's place",
+    "hero_subtitle": "Engineering Solution and lots of insights expiration you can find here",
+    "about_title": "I want to say something...",
+    "about_text": "Hello, Greetings of the day,\nAs an engineer & Explorer, I love to explore the new tools tech and strategies for solutions. Always wanted to Try new things out and know how it works behind the scene to gent more and more insight which help me analyze probable outcomes, opportunities and risks. As I like test things at UX level I'm ready to pick role as QA(UX) for any kind of software, Also i love to do research work or DATA/Business analytics so for that I'm ready too & as AI/ML Dev can work too as I have exp. \n\nI know English as SL, Hindi as SL and Gujrati as FL. Prefer any language out of these to reach me out else Google translate is the one other I know lol. Jokes apart... \n\nThis was YC Mayani's thoughts in written form.\n& you have and Awesome time ahead.🍀   ",
+    "about_skills": "Computer Vision,Generative AI,ML/DL,PyTorch,Python,JS,SQL/NoSql,C++",
+    "contact_title": "Having Queries?",
+    "contact_subtitle": "Open for collaboration on technically demanding media projects or architectural consulting for AI integration.",
+    "contact_email": "imstudentasyc@gmail.com",
+    "projects_title": "Projects & Experiments ",
+    "projects_subtitle": "My Explorations",
+    "social_linkedin": "https://www.linkedin.com/in/ycmayani02/",
+    "social_twitter": "https://twitter.com/@testfor050",
+    "social_github": "https://github.com/ImStudent02",
+    "games_subtitle": "Bored already? Try some fun.",
+    "games_title": "Game Zone",
+    "hero_description": "I explore, I try, I get inspired, I build, I Test & I mark as resolved. Over all I like to explore new Technologies in any field of studies."
+  },
+  "projects": [
+    {
+      "id": "1",
+      "title": "Neural Roto Assistant",
+      "description": "A bespoke semantic segmentation model designed to automate complex rotoscoping tasks for feature films. Reduced manual masking time by 74% while maintaining sub-pixel edge accuracy.",
+      "image_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop",
+      "project_url": "#",
+      "tags": "VFX Integration",
+      "sort_order": 0,
+      "created_at": "2024-05-05T00:00:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Sonic Landscape Synthesis",
+      "description": "An end-to-end diffusion model capable of generating dynamic, multi-stem ambient soundscapes synchronized to visual sentiment analysis in real-time.",
+      "image_url": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=2670&auto=format&fit=crop",
+      "project_url": "#",
+      "tags": "Generative Audio",
+      "sort_order": 1,
+      "created_at": "2024-05-05T00:00:00Z"
+    },
+    {
+      "title": "DLSS",
+      "description": "",
+      "image_url": "",
+      "project_url": "",
+      "tags": "",
+      "sort_order": 3,
+      "id": "b98d34cd-983d-4be3-b81e-691bec9d4be3",
+      "created_at": "2026-05-05T19:24:09.690Z"
+    }
+  ]
+}

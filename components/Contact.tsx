@@ -33,158 +33,115 @@ export default function Contact({ title, subtitle }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="relative" style={{ background: "var(--bg-primary)" }}>
-      <div className="section-container" ref={ref}>
-        {/* Section header - Left aligned to match other sections */}
+    <section id="contact" className="py-24 md:py-32 px-6 relative border-t" style={{ background: "color-mix(in srgb, var(--theme-surface-container-lowest) 92%, transparent)", borderColor: "color-mix(in srgb, var(--theme-outline-variant) 20%, transparent)" }}>
+      {/* Decorative Elements */}
+      <div className="absolute left-0 top-0 w-full h-px" style={{ background: "linear-gradient(to right, transparent, color-mix(in srgb, var(--theme-outline-variant) 50%, transparent), transparent)" }}></div>
+      
+      <div className="max-w-4xl mx-auto relative z-10 text-center" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-20 md:mb-32"
         >
-          <span
-            className="inline-block text-sm md:text-base font-semibold tracking-[0.3em] uppercase py-2 mb-6"
-            style={{ color: "var(--accent-primary)", borderBottom: "1px solid var(--accent-primary)" }}
-          >
-            03. Contact
-          </span>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter" style={{ color: "var(--text-primary)" }}>
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-8 animate-pulse" style={{ background: "color-mix(in srgb, var(--theme-primary) 10%, transparent)", color: "var(--theme-primary)" }}>
+            <Mail className="w-8 h-8" />
+          </div>
+          
+          <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight uppercase mb-6" style={{ color: "var(--theme-on-background)" }}>
             {title}
           </h2>
-          <p className="text-xl mt-6 font-light max-w-2xl" style={{ color: "var(--text-secondary)" }}>
+          <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed" style={{ color: "var(--theme-on-surface-variant)" }}>
             {subtitle}
           </p>
         </motion.div>
 
-        {/* Two column contact layout */}
-        <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 lg:gap-32 items-start">
-          {/* Left info area */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-left"
-          >
-            <h3 className="text-3xl font-bold mb-6 uppercase tracking-wider" style={{ color: "var(--text-primary)" }}>Ready to start?</h3>
-            <p className="text-lg leading-relaxed mb-12 font-light" style={{ color: "var(--text-secondary)" }}>
-              Whether you have a specific project in mind, need technical advice, or just want to say hello—my inbox is always open. Let's build something extraordinary.
-            </p>
-            
-            <div className="space-y-8 pt-8 border-t" style={{ borderColor: "var(--border-glass)" }}>
-              <div className="group">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] mb-2" style={{ color: "var(--text-muted)" }}>Direct Email</p>
-                <a href="mailto:hello@measyc.com" className="text-xl md:text-2xl font-light transition-colors duration-300 group-hover:text-[var(--accent-primary)]" style={{ color: "var(--text-primary)" }}>
-                  hello@measyc.com
-                </a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right form area */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="w-full"
-          >
-            <form onSubmit={handleSubmit} className="p-0 space-y-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <form onSubmit={handleSubmit} className="glass-card p-8 md:p-12 rounded-3xl max-w-2xl mx-auto text-left">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               {/* Name input */}
-              <div className="relative">
+              <div className="space-y-2">
+                <label className="text-sm font-bold uppercase tracking-wider" style={{ color: "var(--theme-on-surface)" }}>Designation</label>
                 <input
                   type="text"
-                  placeholder="YOUR NAME"
+                  placeholder="John Doe"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   required
+                  className="w-full bg-transparent border-b px-0 py-3 text-lg transition-colors focus:outline-none"
                   style={{
-                    background: "var(--bg-card)",
-                    border: "1px solid var(--border-glass)",
-                    color: "var(--text-primary)",
-                    borderRadius: "0px",
-                    padding: "20px 24px",
-                    width: "100%",
-                    fontSize: "14px",
-                    fontWeight: "bold",
-                    letterSpacing: "0.1em",
-                    outline: "none",
-                    transition: "all 0.4s ease",
+                    borderColor: "var(--theme-outline)",
+                    color: "var(--theme-on-surface)"
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = "var(--text-primary)")}
-                  onBlur={(e) => (e.target.style.borderColor = "var(--border-glass)")}
+                  onFocus={(e) => (e.target.style.borderColor = "var(--theme-primary)")}
+                  onBlur={(e) => (e.target.style.borderColor = "var(--theme-outline)")}
                 />
               </div>
 
               {/* Email input */}
-              <div className="relative">
+              <div className="space-y-2">
+                <label className="text-sm font-bold uppercase tracking-wider" style={{ color: "var(--theme-on-surface)" }}>Return Frequency (Email)</label>
                 <input
                   type="email"
-                  placeholder="EMAIL ADDRESS"
+                  placeholder="john@example.com"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   required
+                  className="w-full bg-transparent border-b px-0 py-3 text-lg transition-colors focus:outline-none"
                   style={{
-                    background: "var(--bg-card)",
-                    border: "1px solid var(--border-glass)",
-                    color: "var(--text-primary)",
-                    borderRadius: "0px",
-                    padding: "20px 24px",
-                    width: "100%",
-                    fontSize: "14px",
-                    fontWeight: "bold",
-                    letterSpacing: "0.1em",
-                    outline: "none",
-                    transition: "all 0.4s ease",
+                    borderColor: "var(--theme-outline)",
+                    color: "var(--theme-on-surface)"
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = "var(--text-primary)")}
-                  onBlur={(e) => (e.target.style.borderColor = "var(--border-glass)")}
+                  onFocus={(e) => (e.target.style.borderColor = "var(--theme-primary)")}
+                  onBlur={(e) => (e.target.style.borderColor = "var(--theme-outline)")}
                 />
               </div>
+            </div>
 
-              {/* Message textarea */}
-              <div className="relative">
-                <textarea
-                  placeholder="PROJECT DETAILS..."
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  required
-                  rows={5}
-                  style={{
-                    background: "var(--bg-card)",
-                    border: "1px solid var(--border-glass)",
-                    color: "var(--text-primary)",
-                    borderRadius: "0px",
-                    padding: "20px 24px",
-                    width: "100%",
-                    fontSize: "14px",
-                    fontWeight: "bold",
-                    letterSpacing: "0.1em",
-                    outline: "none",
-                    transition: "all 0.4s ease",
-                    resize: "vertical"
-                  }}
-                  onFocus={(e) => (e.target.style.borderColor = "var(--text-primary)")}
-                  onBlur={(e) => (e.target.style.borderColor = "var(--border-glass)")}
-                />
-              </div>
+            {/* Message textarea */}
+            <div className="space-y-2 mb-10">
+              <label className="text-sm font-bold uppercase tracking-wider" style={{ color: "var(--theme-on-surface)" }}>Transmission</label>
+              <textarea
+                placeholder="Message payload..."
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                required
+                rows={4}
+                className="w-full bg-transparent border-b px-0 py-3 text-lg transition-colors focus:outline-none resize-y"
+                style={{
+                  borderColor: "var(--theme-outline)",
+                  color: "var(--theme-on-surface)"
+                }}
+                onFocus={(e) => (e.target.style.borderColor = "var(--theme-primary)")}
+                onBlur={(e) => (e.target.style.borderColor = "var(--theme-outline)")}
+              />
+            </div>
 
-              {/* Submit button */}
-              <motion.button
-                type="submit"
-                disabled={sending}
-                className="btn-accent w-full"
-                style={{ opacity: sending ? 0.7 : 1, marginTop: "24px" }}
-              >
-                {sending ? (
-                  "TRANSMITTING..."
-                ) : sent ? (
-                  "✓ MESSAGE RECEIVED"
-                ) : (
-                  "INITIATE SEQUENCE"
-                )}
-              </motion.button>
-            </form>
-          </motion.div>
-        </div>
+            {/* Submit button */}
+            <button
+              type="submit"
+              disabled={sending}
+              className="w-full font-bold py-4 rounded-full transition-all hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest text-sm"
+              style={{ 
+                opacity: sending ? 0.7 : 1,
+                background: "var(--theme-primary)",
+                color: "var(--theme-on-primary)",
+                boxShadow: "0 0 20px color-mix(in srgb, var(--theme-primary) 30%, transparent)"
+              }}
+            >
+              {sending ? (
+                "TRANSMITTING..."
+              ) : sent ? (
+                "✓ PAYLOAD DELIVERED"
+              ) : (
+                "SEND TRANSMISSION"
+              )}
+            </button>
+          </form>
+        </motion.div>
       </div>
     </section>
   );

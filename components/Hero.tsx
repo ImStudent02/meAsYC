@@ -31,111 +31,89 @@ export default function Hero({ title, subtitle, description }: HeroProps) {
   };
 
   return (
-    <section id="hero" className="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated gradient orbs in background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] rounded-full opacity-20 blur-3xl"
-          style={{
-            background: "radial-gradient(circle, var(--accent-primary), transparent 70%)",
-            top: "-20%",
-            right: "-10%",
-          }}
-          animate={{ scale: [1, 1.1, 1], x: [0, 50, 0], y: [0, -30, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] rounded-full opacity-15 blur-3xl"
-          style={{
-            background: "radial-gradient(circle, var(--accent-secondary), transparent 70%)",
-            bottom: "-10%",
-            left: "-10%",
-          }}
-          animate={{ scale: [1, 1.2, 1], x: [0, -40, 0], y: [0, 40, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
+    <section id="nexus" className="relative min-h-[90vh] flex flex-col justify-center items-center px-6 overflow-hidden">
 
       {/* Main content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center pt-20">
+      <div className="z-10 text-center w-full max-w-3xl pt-20">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="max-w-4xl"
+          className="flex flex-col items-center"
         >
-          {/* Subtitle / Eyebrow */}
-          <motion.div variants={fadeInUp} className="mb-6 overflow-hidden">
-            <span
-              className="inline-block text-sm md:text-base font-semibold tracking-[0.3em] uppercase py-2"
-              style={{ color: "var(--accent-primary)", borderBottom: "1px solid var(--accent-primary)" }}
-            >
+          {/* Status Pill / Eyebrow */}
+          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8">
+            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "var(--theme-primary)" }}></span>
+            <span className="text-xs font-medium tracking-wider uppercase" style={{ color: "var(--theme-on-surface)" }}>
               {subtitle}
             </span>
           </motion.div>
 
-          {/* Massive Cinematic Title */}
+          {/* Main Title */}
           <motion.h1
             variants={fadeInUp}
-            className="text-5xl sm:text-6xl md:text-8xl lg:text-[8rem] font-black leading-[0.9] tracking-tighter mb-8"
-            style={{ color: "var(--text-primary)", textTransform: "uppercase" }}
+            className="font-display font-bold text-5xl sm:text-6xl md:text-7xl tracking-tight mb-6 leading-tight"
+            style={{ color: "var(--theme-on-background)" }}
           >
-            {title.split(" ").map((word, i) => (
-              <span key={i} className={i % 2 !== 0 ? "gradient-text" : ""}>
-                {word}{" "}
-              </span>
-            ))}
+            {title.split(" ").map((word, i) => {
+              // Highlight the last word or specific words based on the theme
+              if (i === title.split(" ").length - 1) {
+                return (
+                  <span key={i} className="text-gradient block mt-2 text-6xl sm:text-7xl md:text-8xl">
+                    {word}
+                  </span>
+                );
+              }
+              return <span key={i}>{word} </span>;
+            })}
           </motion.h1>
 
           {/* Description */}
           <motion.p
             variants={fadeInUp}
-            className="text-xl md:text-2xl mb-12 max-w-2xl font-light leading-relaxed tracking-wide"
-            style={{ color: "var(--text-secondary)" }}
+            className="text-lg mb-10 max-w-md mx-auto leading-relaxed"
+            style={{ color: "var(--theme-on-surface-variant)" }}
           >
             {description}
           </motion.p>
 
-          {/* Action buttons - Sharp & Architectural */}
+          {/* Actions */}
           <motion.div
             variants={fadeInUp}
-            className="grid grid-cols-1 sm:flex sm:flex-row sm:items-start gap-4 sm:gap-6 mt-10"
+            className="flex flex-col sm:flex-row gap-4 w-full justify-center"
           >
-            <a href="#projects" className="btn-accent flex items-center justify-center gap-3 w-full sm:w-auto text-center group">
-              VIEW COLLECTION
-              <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform duration-500" />
-            </a>
-
-            <a
-              href="#contact"
-              className="flex items-center justify-center w-full sm:w-auto text-center py-4 px-8 border transition-all duration-500 uppercase tracking-[0.1em] text-[0.85rem] font-bold"
-              style={{
-                color: "var(--text-primary)",
-                borderColor: "var(--border-glass)",
-                background: "transparent"
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "var(--text-primary)";
-                e.currentTarget.style.color = "var(--bg-primary)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "var(--text-primary)";
+            <a 
+              href="#projects" 
+              className="font-bold py-4 px-8 rounded-full transition-all hover:scale-105 active:scale-95 flex items-center justify-center"
+              style={{ 
+                background: "var(--theme-primary)", 
+                color: "var(--theme-on-primary)",
+                boxShadow: "0 0 20px color-mix(in srgb, var(--theme-primary) 30%, transparent)"
               }}
             >
-              INITIATE CONTACT
+              Initiate Sequence
+            </a>
+            <a
+              href="#about"
+              className="glass-card font-bold py-4 px-8 rounded-full transition-all flex items-center justify-center"
+              style={{ color: "var(--theme-on-surface)" }}
+              onMouseEnter={(e) => e.currentTarget.style.background = "var(--theme-surface-variant)"}
+              onMouseLeave={(e) => e.currentTarget.style.background = "color-mix(in srgb, var(--theme-surface-container-high) 70%, transparent)"}
+            >
+              View Schematics
             </a>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-70"
-        animate={{ y: [0, 15, 0], opacity: [0.4, 1, 0.4] }}
+        className="absolute bottom-8 z-10 flex flex-col items-center gap-2 opacity-50"
+        animate={{ y: [0, 10, 0], opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <ChevronDown size={32} style={{ color: "var(--text-muted)" }} />
+        {/* <span className="text-[10px] uppercase tracking-[0.2em]" style={{ color: "var(--theme-on-surface)" }}>Descend</span> */}
+        <div className="w-[1px] h-12" style={{ background: "linear-gradient(to bottom, var(--theme-on-surface), transparent)" }}></div>
       </motion.div>
     </section>
   );

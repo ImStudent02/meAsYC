@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI/ML Engineer Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#b4cbce",
+                        "on-secondary-container": "#616363",
+                        "outline": "#747878",
+                        "surface-dim": "#ddd9d9",
+                        "secondary-fixed": "#e2e2e2",
+                        "inverse-surface": "#313030",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#5d5f5f",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#444748",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "surface-container": "#f1edec",
+                        "outline-variant": "#c4c7c8",
+                        "on-tertiary-fixed-variant": "#364a4d",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ebe7e7",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-container": "#647a7c",
+                        "inverse-primary": "#c6c6c7",
+                        "on-primary-container": "#747676",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-primary-fixed": "#1a1c1c",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#454747",
+                        "tertiary-fixed": "#d0e7ea",
+                        "secondary-container": "#dfe0e0",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary-fixed": "#091f21",
+                        "inverse-on-surface": "#f4f0ef",
+                        "background": "#fcf8f8",
+                        "primary-container": "#ffffff",
+                        "surface-tint": "#5d5f5f",
+                        "surface-bright": "#fcf8f8",
+                        "tertiary": "#4d6265",
+                        "primary": "#5d5f5f",
+                        "primary-fixed": "#e2e2e2",
+                        "surface": "#fcf8f8",
+                        "secondary-fixed-dim": "#c6c6c7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "unit": "8px",
+                        "stack-gap": "16px",
+                        "container-max": "1200px",
+                        "section-padding": "120px"
+                    },
+                    "fontFamily": {
+                        "display": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h2": ["Inter"],
+                        "h3": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "h1": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(90deg, #1c1b1b, #5d5f5f);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Navigation -->
+<nav class="sticky top-0 w-full z-50 bg-background/60 backdrop-blur-md border-b border-outline-variant/20 shadow-[0_0_20px_rgba(60,215,255,0.1)]">
+<div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+<div class="font-h1 text-h1 font-bold text-primary tracking-tighter">
+                VOID_ARCHITECT
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#nexus">Nexus</a>
+<a class="text-on-surface-variant font-medium hover:text-primary hover:drop-shadow-[0_0_8px_rgba(60,215,255,0.8)] transition-all duration-300 font-body-md text-body-md" href="#evolution">Evolution</a>
+<a class="text-on-surface-variant font-medium hover:text-primary hover:drop-shadow-[0_0_8px_rgba(60,215,255,0.8)] transition-all duration-300 font-body-md text-body-md" href="#artifacts">Artifacts</a>
+<a class="text-on-surface-variant font-medium hover:text-primary hover:drop-shadow-[0_0_8px_rgba(60,215,255,0.8)] transition-all duration-300 font-body-md text-body-md" href="#signal">Signal</a>
+</div>
+<div class="flex gap-4">
+<button class="active:scale-95 transition-transform text-primary hover:drop-shadow-[0_0_8px_rgba(60,215,255,0.8)]">
+<span class="material-symbols-outlined">brightness_4</span>
+</button>
+<button class="active:scale-95 transition-transform text-primary hover:drop-shadow-[0_0_8px_rgba(60,215,255,0.8)]">
+<span class="material-symbols-outlined">account_tree</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" id="nexus">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-background/90 z-10"></div>
+<img alt="Abstract background" class="w-full h-full object-cover opacity-30" data-alt="A serene, ethereal abstract digital landscape composed of soft, undulating white and silver waves. The lighting is high-key and diffused, creating a pristine, heaven-like light-mode atmosphere. Subtle translucent glass-like layers intersect, reflecting minimalist technical elegance and clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrPAXqg5WAEjZyfnY9fB2IyWHeaxNJpNWpsK4t3P1LeS3xR3pOXQ6gH_vLxkC9l2-Z3whcUNOrKpRidIjMcAl0MJj6RTyJ1C1IqB3Xjpzg8lB3aO6K2KjSu_Ub3Ab7gaR84X_AYRySUN2Xd_U6cJHtdfbKvMUQnQ4tdeLlVRL8eujocHbbT-wOtePUN4xjZlj3wX8wGIo_lWFcts5wfIl8NTM4lLZ8Kbd1tufycpnAqDLQ0kWJerJLy25vdEQGqLN0MJbg5lN-rxI"/>
+</div>
+<div class="relative z-10 text-center max-w-4xl px-gutter">
+<h1 class="font-display text-display text-on-background mb-stack-gap">
+                ELEVATING MEDIA<br/>
+<span class="text-gradient">THROUGH AI</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                Bridging the gap between complex machine learning architectures and cinematic storytelling. Architecting intelligent systems that feel like magic.
+            </p>
+<div class="flex gap-4 justify-center">
+<a class="glass-panel px-8 py-3 rounded-full font-body-md text-body-md text-on-background hover:bg-surface-container-high transition-colors flex items-center gap-2" href="#artifacts">
+                    Explore Artifacts <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- About & Skills Bento Grid -->
+<section class="py-section-padding px-gutter max-w-container-max mx-auto" id="evolution">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- About Card -->
+<div class="md:col-span-8 glass-panel rounded-xl p-8 flex flex-col justify-between">
+<div>
+<h2 class="font-h2 text-h2 text-on-background mb-4">The Convergence of Art &amp; Logic</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        My work exists at the intersection of high technology and human creativity. By developing advanced neural networks and generative models, I empower creators in the entertainment industry to push the boundaries of visual and narrative expression. The goal is always invisible complexity—technology so refined it simply feels like an extension of the artist's intent.
+                    </p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps border border-outline-variant/30">Computer Vision</span>
+<span class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps border border-outline-variant/30">Generative AI</span>
+<span class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps border border-outline-variant/30">Neural Rendering</span>
+</div>
+</div>
+<!-- Focus Area Card -->
+<div class="md:col-span-4 glass-panel rounded-xl p-8 relative overflow-hidden group">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-secondary-fixed/50 rounded-full blur-3xl group-hover:bg-tertiary-fixed/50 transition-colors duration-700"></div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4 block">model_training</span>
+<h3 class="font-h3 text-h3 text-on-background mb-2">Model Architecture</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Designing bespoke, efficient neural pathways optimized for real-time media processing and high-fidelity output.</p>
+</div>
+<!-- Tech Stack Card -->
+<div class="md:col-span-12 glass-panel rounded-xl p-8">
+<h3 class="font-h3 text-h3 text-on-background mb-6">Technological Arsenal</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div>
+<div class="text-on-surface-variant font-label-caps text-label-caps mb-3 opacity-60">Frameworks</div>
+<ul class="space-y-2 font-body-md text-body-md text-on-background">
+<li>PyTorch</li>
+<li>TensorFlow</li>
+<li>JAX</li>
+<li>ONNX</li>
+</ul>
+</div>
+<div>
+<div class="text-on-surface-variant font-label-caps text-label-caps mb-3 opacity-60">Languages</div>
+<ul class="space-y-2 font-body-md text-body-md text-on-background">
+<li>Python</li>
+<li>C++ / CUDA</li>
+<li>Rust</li>
+<li>Julia</li>
+</ul>
+</div>
+<div>
+<div class="text-on-surface-variant font-label-caps text-label-caps mb-3 opacity-60">Media Tools</div>
+<ul class="space-y-2 font-body-md text-body-md text-on-background">
+<li>Unreal Engine</li>
+<li>Houdini</li>
+<li>Nuke</li>
+<li>TouchDesigner</li>
+</ul>
+</div>
+<div>
+<div class="text-on-surface-variant font-label-caps text-label-caps mb-3 opacity-60">Cloud / Ops</div>
+<ul class="space-y-2 font-body-md text-body-md text-on-background">
+<li>AWS / GCP</li>
+<li>Kubernetes</li>
+<li>Docker</li>
+<li>MLflow</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-section-padding px-gutter max-w-container-max mx-auto relative" id="artifacts">
+<div class="mb-16">
+<h2 class="font-display text-display text-on-background">Selected Artifacts</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Applied intelligence in media production.</p>
+</div>
+<div class="space-y-8">
+<!-- Project 1 -->
+<div class="glass-panel rounded-xl overflow-hidden group">
+<div class="flex flex-col md:flex-row h-full">
+<div class="md:w-1/2 p-10 flex flex-col justify-center border-r border-outline-variant/10">
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-caps text-label-caps">VFX Integration</span>
+</div>
+<h3 class="font-h2 text-h2 text-on-background mb-4">Neural Roto Assistant</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            A bespoke semantic segmentation model designed to automate complex rotoscoping tasks for feature films. Reduced manual masking time by 74% while maintaining sub-pixel edge accuracy.
+                        </p>
+<a class="inline-flex items-center gap-2 font-body-md text-body-md text-primary hover:text-on-background transition-colors w-fit pb-1 border-b border-primary/30 hover:border-on-background" href="#">
+                            View Case Study <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+<div class="md:w-1/2 relative min-h-[300px] bg-surface-container-low overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&amp;w=2670&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-40 mix-blend-luminosity group-hover:scale-105 transition-transform duration-1000" data-alt="A highly technical visualization showing a wireframe mesh overlaying a cinematic human face. The aesthetic is clean and minimal, using thin silver lines and subtle blue nodes against a pristine white background. The image evokes a sense of high-end, precise machine learning applied to visual effects.">
+</div>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="glass-panel rounded-xl overflow-hidden group">
+<div class="flex flex-col md:flex-row-reverse h-full">
+<div class="md:w-1/2 p-10 flex flex-col justify-center border-l border-outline-variant/10">
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-caps text-label-caps">Generative Audio</span>
+</div>
+<h3 class="font-h2 text-h2 text-on-background mb-4">Sonic Landscape Synthesis</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            An end-to-end diffusion model capable of generating dynamic, multi-stem ambient soundscapes synchronized to visual sentiment analysis in real-time.
+                        </p>
+<a class="inline-flex items-center gap-2 font-body-md text-body-md text-primary hover:text-on-background transition-colors w-fit pb-1 border-b border-primary/30 hover:border-on-background" href="#">
+                            View Case Study <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+<div class="md:w-1/2 relative min-h-[300px] bg-surface-container-low overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&amp;w=2670&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-40 mix-blend-luminosity group-hover:scale-105 transition-transform duration-1000" data-alt="An ethereal rendering of sound waves represented as smooth, flowing glass-like ribbons suspended in a bright, white void. The visualization uses soft gradients of silver and minimal translucent layering. It conveys the concept of clean, algorithmically generated audio in a high-end studio setting.">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience & Contact -->
+<section class="py-section-padding px-gutter max-w-container-max mx-auto" id="signal">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<!-- Experience -->
+<div>
+<h3 class="font-h2 text-h2 text-on-background mb-8">Trajectory</h3>
+<div class="space-y-8 relative before:absolute before:inset-0 before:ml-2 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-outline-variant/30 before:to-transparent">
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+<div class="flex items-center justify-center w-5 h-5 rounded-full border-2 border-primary bg-background shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"></div>
+<div class="w-[calc(100%-2rem)] md:w-[calc(50%-1.5rem)] glass-panel p-6 rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-primary">2022 - Present</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-background">Lead ML Engineer</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Lumina Visual Effects</p>
+</div>
+</div>
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-5 h-5 rounded-full border-2 border-outline-variant bg-background shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"></div>
+<div class="w-[calc(100%-2rem)] md:w-[calc(50%-1.5rem)] glass-panel p-6 rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">2019 - 2022</span>
+</div>
+<h4 class="font-h3 text-h3 text-on-background">AI Researcher</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">SynthMedia Labs</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Contact -->
+<div class="glass-panel p-10 rounded-xl h-fit">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block">cell_tower</span>
+<h3 class="font-h2 text-h2 text-on-background mb-4">Establish Connection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                    Open for collaboration on technically demanding media projects or architectural consulting for AI integration.
+                </p>
+<form class="space-y-4">
+<div>
+<input class="w-full bg-surface-container-low border-b border-outline-variant/30 px-0 py-3 focus:ring-0 focus:border-primary font-body-md text-body-md text-on-background placeholder-on-surface-variant/50 transition-colors bg-transparent border-t-0 border-l-0 border-r-0" placeholder="Email Frequency" type="email"/>
+</div>
+<div>
+<textarea class="w-full bg-surface-container-low border-b border-outline-variant/30 px-0 py-3 focus:ring-0 focus:border-primary font-body-md text-body-md text-on-background placeholder-on-surface-variant/50 transition-colors bg-transparent border-t-0 border-l-0 border-r-0 resize-none" placeholder="Transmission Data" rows="3"></textarea>
+</div>
+<button class="mt-4 px-6 py-2 rounded-full border border-primary/30 text-primary font-label-caps text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300 w-full md:w-auto" type="button">
+                        Transmit
+                    </button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-section-padding bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-center gap-gutter px-gutter max-w-container-max mx-auto">
+<div class="font-h1 text-h1 text-on-surface font-bold opacity-80 hover:opacity-100 transition-opacity">
+                VOID_ARCHITECT
+            </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary hover:tracking-widest transition-all duration-500" href="#">Terminal</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary hover:tracking-widest transition-all duration-500" href="#">Repository</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary hover:tracking-widest transition-all duration-500" href="#">Neural Link</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary hover:tracking-widest transition-all duration-500" href="#">Protocol</a>
+</div>
+<div class="font-label-caps text-label-caps text-secondary text-center md:text-right">
+                © 2024 ARCHITECT OF THE VOID. ALL DATA ENCRYPTED.
+            </div>
+</div>
+</footer>
+</body></html>

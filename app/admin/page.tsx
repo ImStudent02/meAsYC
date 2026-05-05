@@ -105,11 +105,9 @@ export default function AdminDashboard() {
           ⚡ Quick Setup Guide
         </h3>
         <ul className="space-y-2 text-sm" style={{ color: "var(--text-secondary)" }}>
-          <li>1. Create a Supabase project at supabase.com</li>
-          <li>2. Run the SQL schema in Supabase SQL Editor</li>
-          <li>3. Add your Supabase URL and Anon Key to .env.local</li>
-          <li>4. Create an admin user in Supabase Auth dashboard</li>
-          <li>5. Login here and start managing your content!</li>
+          <li>Data is now stored locally in <code>content/data.json</code></li>
+          <li>Changes made here will be instantly reflected on the site</li>
+          <li>Note: In serverless deployments (Vercel), changes may not persist across redeploys.</li>
         </ul>
       </motion.div>
     </div>

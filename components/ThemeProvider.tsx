@@ -5,7 +5,7 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
 // Available themes
-export type Theme = "dark" | "light" | "hell";
+export type Theme = "dark" | "light" | "red";
 
 interface ThemeContextType {
   theme: Theme;
@@ -28,7 +28,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   // On mount: load theme from localStorage
   useEffect(() => {
     const saved = localStorage.getItem("portfolio-theme") as Theme;
-    if (saved && ["dark", "light", "hell"].includes(saved)) {
+    if (saved && ["dark", "light", "red"].includes(saved)) {
       setThemeState(saved);
     }
     setMounted(true);
