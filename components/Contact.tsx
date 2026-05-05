@@ -5,6 +5,7 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Mail } from "lucide-react";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 interface ContactProps {
   title: string;
@@ -17,19 +18,48 @@ export default function Contact({ title, subtitle }: ContactProps) {
 
   // Form state
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
 
-  // Handle form submit (placeholder - can wire to Supabase or API)
+  // Handle form submit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!turnstileToken) {
+      setError(true);
+      setTimeout(() => setError(false), 3000);
+      return;
+    }
+
     setSending(true);
-    // Simulate send
-    await new Promise((r) => setTimeout(r, 1500));
-    setSending(false);
-    setSent(true);
-    setForm({ name: "", email: "", message: "" });
-    setTimeout(() => setSent(false), 3000);
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          subjectPrefix: "[YCP]",
+          token: turnstileToken
+        }),
+      });
+
+      if (response.ok) {
+        setSent(true);
+        setForm({ name: "", email: "", message: "" });
+        setTurnstileToken(""); // Reset token
+        setTimeout(() => setSent(false), 5000);
+      } else {
+        setError(true);
+        setTimeout(() => setError(false), 3000);
+      }
+    } catch (error) {
+      console.error("Transmission failed:", error);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -120,13 +150,22 @@ export default function Contact({ title, subtitle }: ContactProps) {
               />
             </div>
 
+            {/* Turnstile Verification */}
+            <div className="mb-10 flex justify-center">
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
+                onSuccess={(token: string) => setTurnstileToken(token)}
+                options={{ theme: "dark" }}
+              />
+            </div>
+
             {/* Submit button */}
             <button
               type="submit"
-              disabled={sending}
+              disabled={sending || !turnstileToken}
               className="w-full font-bold py-4 rounded-full transition-all hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest text-sm"
               style={{ 
-                opacity: sending ? 0.7 : 1,
+                opacity: (sending || !turnstileToken) ? 0.7 : 1,
                 background: "var(--theme-primary)",
                 color: "var(--theme-on-primary)",
                 boxShadow: "0 0 20px color-mix(in srgb, var(--theme-primary) 30%, transparent)"
@@ -136,6 +175,8 @@ export default function Contact({ title, subtitle }: ContactProps) {
                 "TRANSMITTING..."
               ) : sent ? (
                 "✓ PAYLOAD DELIVERED"
+              ) : error ? (
+                "Verification Failed"
               ) : (
                 "SEND TRANSMISSION"
               )}
